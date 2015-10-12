@@ -69,10 +69,12 @@ LOOP1	tst.w	(a1)		* check type
 	bpl	LOOP2		* $ffff == omit parapeterでないのならloop2へ
 	lea	-10(a1),a1	* a1=a1-10. 一つ前のパラメータ
 	dbra	d7,LOOP1
+	bra 	DO_IT * formatしかない場合の処理。これがないと次のLOOP2でERRORに飛んでしまう。
 * 
 LOOP2	move.w	(a1),d0		* get type.
 	ext.l	d0		* sign extend 符号拡張
-	bmi	ERROR		* if d0==$ffff(引数省略) then error. loop1からbpl LOOP2で飛んでくる場合には、変数の抜けがないという条件で飛んでくるので引っかからない。ただし、(s,,k)のような抜けがある場合には、kに関して処理してlea -10(a1),a1してから飛んでくるので引っかかる。また、dbra d7,LOOP1で数え終わってからLOOP2に来る場合にも引っかかるおそれがある(formatしかない場合など)。
+	bmi	ERROR		* if d0==$ffff(引数省略) then error. 
+*loop1からbpl LOOP2で飛んでくる場合には、変数の抜けがないという条件で飛んでくるので引っかからない。(s,,k)のような抜けがある場合には、kに関して処理してlea -10(a1),a1してから飛んでくるので引っかかる。
 	beq	DO_FLOW		* if d0==0 then float型. 64ビット.
 	subq.l	#2,d0
 	bmi	DO_INT		* d0==1 int型. そのまま32ビット
@@ -139,9 +141,9 @@ OCTLOOP
 	add.b	d0,d1
 	move.b	(a1)+,d0
 	cmp.b	#'7',d0
-	bgt	SEND0
+	bgt	OCTEND
 	cmp.b	#'0',d0
-	blt	SEND0		* 0-7だったら桁数をチェック. 0-7以外ならsend0へいき3桁未満での終了。
+	blt	OCTEND		* 0-7だったら桁数をチェック. 0-7以外ならsend0へいき3桁未満での終了。
 	dbra	d2,OCTLOOP	* 0-7でも桁数が３桁を超えていたら、次のoctendにいきおしまい。
 OCTEND				* 3桁にいたったために終了する.
 	move.b	d1,(a2)+	* 結果をFSTRに書き込み.
