@@ -22,10 +22,12 @@
   220         repeat
   230                 Out()
   240         until Pointer > (Size)*abs(M)
-  
-
-
-
-
-
+  400 until Pointer <-10 /*>
+  410 end
+  420 /*
+  430 func Out()
+  750 endfunc
+  760 /* edit mode
+  770 func Edit()
+  1710 endfunc
 
