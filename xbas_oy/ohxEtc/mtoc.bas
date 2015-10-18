@@ -22,4 +22,10 @@
   220         repeat
   230                 Out()
   240         until Pointer > (Size)*abs(M)
+  
+
+
+
+
+
 
