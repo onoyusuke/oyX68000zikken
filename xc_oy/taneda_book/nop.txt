@@ -1,0 +1,270 @@
+# 1 "nop.c"
+# 1 "A:\\INCLUDE\\stdio.h" 1
+ 
+
+
+
+
+
+# 1 "A:\\INCLUDE\\stddef.h" 1
+ 
+
+
+
+
+
+extern	volatile int	errno;
+
+
+
+typedef	struct	{
+	int	quot;
+	int	rem;
+}	div_t;
+typedef	struct	{
+	long	quot;
+	long	rem;
+}	ldiv_t;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+typedef	long	ptrdiff_t;
+
+
+
+typedef	unsigned	size_t;
+
+
+
+
+typedef	long	time_t;
+
+
+
+
+typedef	long	clock_t;
+
+
+
+
+typedef	long	fpos_t;
+
+
+
+# 7 "A:\\INCLUDE\\stdio.h" 2
+
+# 1 "A:\\INCLUDE\\stdarg.h" 1
+ 
+
+
+
+
+
+typedef	char	*va_list;
+
+void	va_end(va_list);
+
+
+
+
+
+
+
+
+
+
+# 8 "A:\\INCLUDE\\stdio.h" 2
+
+# 1 "A:\\INCLUDE\\fcntl.h" 1
+ 
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 9 "A:\\INCLUDE\\stdio.h" 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+typedef	struct	_iobuf	{
+	char	*_ptr;
+	int	_cnt;
+	char	*_base;
+	int	_flag;
+	int	_bsize;
+	char	_file;
+	char	_pback;
+	char	*_fname;
+}	FILE;
+extern	FILE	_iob[ 40 ];
+extern	unsigned	_liobuf[96];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 73 "A:\\INCLUDE\\stdio.h"
+
+
+
+
+
+int	getc(FILE *);
+int	putc(int, FILE *);
+int	getchar(void);
+int	putchar(int);
+int	feof(FILE *);
+int	ferror(FILE *);
+int	fileno(FILE *);
+void	clearerr(FILE *);
+
+
+int	fclose(FILE *);
+int	fflush(FILE *);
+void	setbuf(FILE *, char *);
+int	fgetc(FILE *);
+char	*fgets(char *, int, FILE *);
+int	fputc(int, FILE *);
+char	*gets(char *);
+int	ungetc(int, FILE *);
+int	fseek(FILE *, long, int);
+long	ftell(FILE *);
+void	rewind(FILE *);
+int	fcloseall(void);
+int	flushall(void);
+int	fputchar(int);
+void	clrerr(FILE *);
+void	fmode(FILE *, int);
+int	getw(FILE *);
+int	fgetchar(void);
+int	getl(FILE *);
+int	putl(long, FILE *);
+int	putw(short, FILE *);
+void	setnbf(FILE *);
+FILE	*tmpfile(void);
+char	*tmpnam(char *);
+int	rmtmp(void);
+int	rmtemp(void);
+FILE	*fopen(const char *, const char *);
+FILE	*freopen(const char *, const char *, FILE *);
+int	setvbuf(FILE *, char *, int, size_t);
+int	fprintf(FILE *, const char *,...);
+int	vfprintf(FILE *, const char *, va_list);
+int	fscanf(FILE *, const char *,...);
+int	printf(const char *,...);
+int	vprintf(const char *, va_list);
+int	scanf(const char *,...);
+int	sprintf(char *, const char *,...);
+int	vsprintf(char *, const char *, va_list);
+int	sscanf(const char *, const char *,...);
+int	fputs(const char *, FILE *);
+int	puts(const char *);
+size_t	fread(void *, size_t, size_t, FILE *);
+size_t	fwrite(const void *, size_t, size_t, FILE *);
+void	perror(const char *);
+FILE	*fdopen(int, const char *);
+int	fgetpos(FILE *, fpos_t *);
+int	fsetpos(FILE *, const fpos_t *);
+int	remove(const char *);
+FILE	*tempfile(const char *,const char *);
+char	*tempnam(const char *,const char *);
+
+
+# 202 "A:\\INCLUDE\\stdio.h"
+
+
+
+# 1 "nop.c" 2
+
+int
+main(int argc, char *argv[])
+{
+}
+

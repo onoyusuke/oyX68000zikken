@@ -1,5 +1,5 @@
 #include <stdio.h>
 
 main(){
-printf("hello X68000 World.\n");
+printf("hello GCC in X68000 World. \n");
 }
