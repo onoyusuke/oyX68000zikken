@@ -1,8 +1,18 @@
 ECHO OFF
+
 PATH A:\;A:\SYS;A:\BIN;A:\BASIC2;A:\ETC;A:\CC;A:\BC
+
 set lib=A:\LIB
 set cc=A:\CC
 set include=A:\INCLUDE
+
+REM ˆÈ‰º‚ÍGCC
+SET GCC_LINK=HLK -l floatfnc.l
+set GCC_LIB=.l
+SET GCC_NO_XCLIB=
+REM ‚±‚±‚Ü‚ÅGCC
+
+
 SET FASTIO=DONE
 IF %FASTIO% == DONE GOTO SKIP
 FASTIO 384 -S32 -D -F -E
